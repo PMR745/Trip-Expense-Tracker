@@ -10,3 +10,10 @@ Track and manage expenses effortlessly during your trips with this intuitive exp
 <li>Settle debts easily with built-in settling functionality.</li>
 <li>Beautifully designed interface for an intuitive user experience.</li>
 <li>Seamlessly integrates with MongoDB for reliable data storage and retrieval.</li>
+
+<h2>Technology Stack</h2>
+
+<li>Flutter for cross-platform mobile app development.</li>
+<li>Provider package for state management.</li>
+<li>MongoDB for database management.</li>
+<li>Material Design for a sleek and modern UI.</li>
