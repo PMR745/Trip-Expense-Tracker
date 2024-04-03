@@ -17,3 +17,8 @@ Track and manage expenses effortlessly during your trips with this intuitive exp
 <li>Provider package for state management.</li>
 <li>MongoDB for database management.</li>
 <li>Material Design for a sleek and modern UI.</li>
+
+<h2>Screenshots:</h2>
+<div>
+  <img src="https://drive.google.com/file/d/1XdFzdpiqQY5kRXCtLvOwcp7-fS38qQqm/view?usp=drive_link" width=256 margin=10>
+</div>
