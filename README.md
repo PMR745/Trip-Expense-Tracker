@@ -1,16 +1,12 @@
-# trip_expense_tracker
+# PMR Trip Tracker
 
-A new Flutter project.
+Track and manage expenses effortlessly during your trips with this intuitive expense tracking app. Whether you're traveling solo or in a group, this app helps you keep tabs on your spending, split bills, and settle expenses seamlessly.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h2>Features</h2>
+Create and join trip groups to collaborate on expenses with your travel companions.
+Add participants and assign expenses to each member.
+Log expenses with details such as name, amount, and the person responsible for the expense.
+View comprehensive expense summaries and individual contributions.
+Settle debts easily with built-in settling functionality.
+Beautifully designed interface for an intuitive user experience.
+Seamlessly integrates with MongoDB for reliable data storage and retrieval.
