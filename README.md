@@ -18,7 +18,7 @@ Track and manage expenses effortlessly during your trips with this intuitive exp
 <li>MongoDB for database management.</li>
 <li>Material Design for a sleek and modern UI.</li>
 
-<h2>Screenshots:</h2>
+<h2>Screenshots</h2>
 <div>
   <img src="https://firebasestorage.googleapis.com/v0/b/database-pmr.appspot.com/o/PMR%20Trip%20Tracker%2Fimg1.jpg?alt=media&token=d5290a0c-1829-40ab-87ad-5c2a380a2ab8" width=256 margin=20>
   <img src="https://firebasestorage.googleapis.com/v0/b/database-pmr.appspot.com/o/PMR%20Trip%20Tracker%2Fimg2.jpg?alt=media&token=39f0b845-915d-4e9d-ba3b-7b4d686285a8" width=256 margin=20>
