@@ -64,7 +64,7 @@ class SideMenu extends StatelessWidget {
                   final password =
                       await MongoDatabase.getPassword(value.getGroupName());
                   await Share.share(
-                    "PMR Trip Tracker App\n\nDownload the App:- link\nGroup Name: ${value.getGroupName()}\nGroup Password: ${password}",
+                    "PMR Trip Tracker App\n\nDownload the App:- https://github.com/PMR745/Trip-Expense-Tracker \nGroup Name: ${value.getGroupName()}\nGroup Password: ${password}",
                     subject: "Invitation to Join PMR Trip Tracker App",
                   );
                 },
@@ -81,7 +81,9 @@ class SideMenu extends StatelessWidget {
                   final List groupParticipants =
                       await MongoDatabase.getGroupParticipants(
                           value.getGroupName());
-                  // print(groupExpenses[0].expenseName);
+                  final List groupSettleDown =
+                      await MongoDatabase.getSettleDown(value.groupName);
+
                   String message =
                       "PMR Trip Tracker\nGroup Name: ${value.getGroupName()} \n\n";
 
@@ -93,9 +95,28 @@ class SideMenu extends StatelessWidget {
 
                   message += "\nTotal Expense: Rs. ${totalAmount}";
                   message +=
-                      "\nIndividual Contribution: Rs. ${totalAmount / groupParticipants.length}";
-                  // print(message);
+                      "\nIndividual Contribution: Rs. ${(totalAmount / groupParticipants.length).toStringAsFixed(2)}\n";
+                  print(groupSettleDown.toString());
+                  if (groupSettleDown.isNotEmpty) {
+                    message += "\nSettleDown\n";
+                    groupSettleDown.forEach((element) {
+                      message +=
+                          "${element.from} to ${element.to}: Rs. ${element.amount.toStringAsFixed(2)}\n";
+                    });
+                  }
                   await Share.share(message);
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: const Text("Change Theme"),
+                trailing:
+                    Provider.of<ThemeProvider>(context).themeData == lightMode
+                        ? const Icon(Icons.dark_mode)
+                        : const Icon(Icons.light_mode),
+                onTap: () {
+                  Provider.of<ThemeProvider>(context, listen: false)
+                      .toggleTheme();
                 },
               ),
               Divider(),
@@ -114,18 +135,6 @@ class SideMenu extends StatelessWidget {
                         MaterialPageRoute(
                             builder: ((context) => const MainScreen())));
                   }
-                },
-              ),
-              Divider(),
-              ListTile(
-                title: const Text("Change Theme"),
-                trailing:
-                    Provider.of<ThemeProvider>(context).themeData == lightMode
-                        ? const Icon(Icons.dark_mode)
-                        : const Icon(Icons.light_mode),
-                onTap: () {
-                  Provider.of<ThemeProvider>(context, listen: false)
-                      .toggleTheme();
                 },
               ),
               const Divider(),

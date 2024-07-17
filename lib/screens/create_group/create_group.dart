@@ -73,11 +73,17 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                                 const SnackBar(
                                     content:
                                         Text("Group Name cannot be empty")));
+                            setState(() {
+                              createGroup = false;
+                            });
                           } else if (groupPasswordController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text(
                                         "Group Password cannot be empty")));
+                            setState(() {
+                              createGroup = false;
+                            });
                           }
                         },
                         child: const Text(

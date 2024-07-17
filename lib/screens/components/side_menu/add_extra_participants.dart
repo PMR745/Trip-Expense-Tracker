@@ -61,18 +61,23 @@ class _AddExtraParticipantsState extends State<AddExtraParticipants> {
                 CustomButton(
                   child: ElevatedButton(
                     onPressed: () {
-                      MongoDatabase.addParticipants(
-                        value.getGroupName(),
-                        participantNameController.text,
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                              "${participantNameController.text} added to group")));
-                      setState(() {
-                        participantsName
-                            .add(participantNameController.text.trim());
-                      });
-                      participantNameController.text = "";
+                      if (participantNameController.text == "") {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Participant name cannot be empty")));
+                      } else {
+                        MongoDatabase.addParticipants(
+                          value.getGroupName(),
+                          participantNameController.text,
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                "${participantNameController.text} added to group")));
+                        setState(() {
+                          participantsName
+                              .add(participantNameController.text.trim());
+                        });
+                        participantNameController.text = "";
+                      }
                     },
                     child: const Text(
                       "Add Participant",

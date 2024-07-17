@@ -101,18 +101,28 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   CustomButton(
                     child: ElevatedButton(
                         onPressed: () {
-                          GroupExpense expense = GroupExpense(
-                              expenseName: expenseName.text.trim(),
-                              expenseAmount: expenseAmount.text.trim(),
-                              expenseDoneBy: dropDownValue,
-                              timeOfExpense: DateTime.now());
-                          value.addGroupExpense(expense);
-                          MongoDatabase.addGroupExpense(
-                            value.groupName,
-                            expense,
-                          );
-                          setState(() {});
-                          Navigator.pop(context, expense);
+                          if (expenseName.text != "" &&
+                              expenseAmount.text != "") {
+                            GroupExpense expense = GroupExpense(
+                                expenseName: expenseName.text.trim(),
+                                expenseAmount: expenseAmount.text.trim(),
+                                expenseDoneBy: dropDownValue,
+                                timeOfExpense: DateTime.now());
+                            value.addGroupExpense(expense);
+                            MongoDatabase.addGroupExpense(
+                              value.groupName,
+                              expense,
+                            );
+                            setState(() {});
+                            Navigator.pop(context, expense);
+                          } else if (expenseName.text == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text("Expense name cannot be empty")));
+                          } else if (expenseAmount.text == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content:
+                                    Text("Expense amount cannot be empty")));
+                          }
                         },
                         child: const Text(
                           "Add Expense",

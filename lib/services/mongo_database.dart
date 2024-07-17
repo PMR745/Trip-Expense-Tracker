@@ -114,7 +114,9 @@ class MongoDatabase {
   // Get Settle down
   static Future<List<SettleDown>> getSettleDown(String groupName) async {
     var group = await userCollection.findOne({"groupName": groupName});
-    var result = group['groupSettleDowns'] as List<dynamic>;
+    var result = group['groupSettleDowns'] != null
+        ? group['groupSettleDowns'] as List<dynamic>
+        : [];
     var transfomed = result.map((e) => SettleDown.fromMap(e)).toList();
     return transfomed;
   }

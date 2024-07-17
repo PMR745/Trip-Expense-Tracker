@@ -9,7 +9,7 @@ class SettleDownScreen extends StatefulWidget {
     super.key,
     required this.settleDown,
   });
-  List<SettleDown> settleDown = [];
+  final List<SettleDown> settleDown;
 
   @override
   State<SettleDownScreen> createState() => _SettleDownScreenState();
@@ -24,6 +24,7 @@ class _SettleDownScreenState extends State<SettleDownScreen> {
     settleDown = widget.settleDown;
     _getSettleDowns();
     filter();
+    _updateSettleDowns();
   }
 
   void _getSettleDowns() async {
