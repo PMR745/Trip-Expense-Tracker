@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -131,6 +132,31 @@ class _MainScreenState extends State<MainScreen> {
                             },
                             child: const Text(
                               "Join Group",
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            )),
+                      ),
+                      CustomButton(
+                        child: ElevatedButton(
+                            onPressed: () async {
+                              final connectivityResult =
+                                  await Connectivity().checkConnectivity();
+                              if (connectivityResult
+                                  .contains(ConnectivityResult.none)) {
+                                print('not connected');
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content:
+                                            Text('Not connected to internet')));
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        'You are connected to ${connectivityResult}')));
+                              }
+                            },
+                            child: const Text(
+                              "Check connection",
                               style: TextStyle(
                                 color: Colors.black,
                               ),
