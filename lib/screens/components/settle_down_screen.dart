@@ -21,6 +21,7 @@ class _SettleDownScreenState extends State<SettleDownScreen> {
 
   @override
   void initState() {
+    super.initState();
     settleDown = widget.settleDown;
     _getSettleDowns();
     filter();
