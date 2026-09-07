@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trip_expense_tracker/providers/groupProvider.dart';
 import 'package:trip_expense_tracker/screens/components/custom_button.dart';
+import 'package:trip_expense_tracker/screens/dev/firebase_auth_check_screen.dart';
 import 'package:trip_expense_tracker/screens/create_group/create_group.dart';
 import 'package:trip_expense_tracker/screens/home_screen.dart';
 import 'package:trip_expense_tracker/screens/join_group/join_group_screen.dart';
@@ -135,6 +136,26 @@ class _MainScreenState extends State<MainScreen> {
                                 color: Colors.black,
                               ),
                             )),
+                      ),
+                      // TODO(TET-39): temporary entry point for the TET-37
+                      // Firebase wiring check. Remove this, the screen it
+                      // opens, and lib/screens/dev/ when the real sign-in
+                      // screen lands.
+                      const SizedBox(height: 30),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const FirebaseAuthCheckScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Firebase check (temp)",
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     ],
                   ),

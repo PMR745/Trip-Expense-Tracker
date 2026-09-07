@@ -41,3 +41,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase config.
+# Not a secret — it holds public project identifiers, and Firebase security
+# comes from rules and App Check rather than from hiding this file. It is
+# excluded because the repository is public and a committed config invites
+# other people's apps to consume this project's free quota. Obtain your own
+# from the Firebase console: see the setup notes in README.
+/android/app/google-services.json
+/ios/Runner/GoogleService-Info.plist
+/macos/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
